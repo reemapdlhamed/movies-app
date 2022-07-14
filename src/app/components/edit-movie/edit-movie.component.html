@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Edit Movie Form</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Movie name</mat-label>
+      <input matInput placeholder="Enter film name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Movie description</mat-label>
+      <input
+        matInput
+        placeholder="Enter film description"
+        formControlName="description"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <div class="myfilebrowser">
+        <mat-toolbar>
+          <!-- Readonly Input to show File names -->
+          <input matInput readonly />
+
+          <!-- Browse Button -->
+          <button mat-flat-button color="primary">Browse</button>
+        </mat-toolbar>
+
+        <!-- Fetch selected filed on change -->
+        <input
+          type="file"
+          #UploadFileInput
+          id="fileUpload"
+          (change)="fileChangeEvent($event)"
+          formControlName="image"
+        />
+      </div>
+    </mat-form-field>
+    <mat-form-field class="sort" appearance="outline">
+      <!-- <p>{{ category | json }}</p> -->
+      <mat-label>Movie category</mat-label>
+      <mat-select
+        form
+        panelClass="sort-select"
+        placeholder="category"
+        formControlName="category_id"
+      >
+        <mat-option [value]="cat.id" *ngFor="let cat of category?.message">{{
+          cat.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button class="save" mat-raised-button color="primary">Save</button>
+  </form>
+</div>

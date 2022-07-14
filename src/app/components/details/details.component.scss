@@ -1,0 +1,68 @@
+.details-wrapper {
+  margin: 20px auto;
+  max-width: 900px;
+  // position: relative;
+}
+.details {
+  ::ng-deep mwl-gauge {
+    width: 150px;
+    height: 150px;
+    display: block;
+    padding: 10px;
+    .dial {
+      stroke-width: 10;
+    }
+    .value {
+      stroke-dasharray: none;
+      stroke-width: 13;
+    }
+    .value-text {
+      fill: #fff;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  .movie-gauge {
+    // position: absolute;
+    top: 50px;
+    right: 0;
+    &-label {
+      font-size: 20px;
+      color: #fff;
+      // position: relative;
+      bottom: 60px;
+    }
+  }
+}
+.movie {
+  &-banner {
+    height: 442px;
+    overflow: hidden;
+
+    &-img {
+      width: 30%;
+      filter: blur(1px);
+    }
+  }
+  &-content {
+    text-align: center;
+    position: relative;
+    top: -25rem;
+  }
+  &-header {
+    &-title {
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 70px;
+    }
+    &-releas-date {
+      color: #fff;
+      font-weight: 700;
+    }
+    &-genres {
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+}

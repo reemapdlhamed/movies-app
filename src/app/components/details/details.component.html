@@ -1,0 +1,22 @@
+<div class="details">
+  <div class="movie-banner">
+    <img
+      src="{{ 'https://test-api.storexweb.com/' + movie?.message?.image }} "
+      alt=""
+      class="movie-banner-img"
+    />
+  </div>
+  <div class="movie-content">
+    <div class="details-wrapper">
+      <div class="movie-header">
+        <h1 class="movie-header-title">{{ movie?.message?.name }}</h1>
+        <h2 class="movie-header-releas-date">
+          {{ movie?.message?.description }}
+        </h2>
+        <p class="movie-header-genres">
+          <span> Type :{{ movie?.message?.category?.name }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

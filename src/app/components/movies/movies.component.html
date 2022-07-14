@@ -1,0 +1,68 @@
+<div class="filters">
+  <mat-form-field class="sort">
+    <mat-label>Sort by category</mat-label>
+    <mat-select form panelClass="sort-select" [(ngModel)]="selectedOption">
+      <mat-option Selected>All</mat-option>
+      <mat-option
+        #cat
+        (click)="searchMovies($event)"
+        (click)="categorizedMovies()"
+        *ngFor="let cat of category?.message"
+        [value]="cat.id"
+        >{{ cat.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <app-add-movie (click)="openDialog()"></app-add-movie>
+</div>
+<div class="movies">
+  <ng-container *ngFor="let movie of movies?.message; let i = index">
+    <div class="movie">
+      <div class="movie-thumb-container">
+        <img
+          src="{{ 'https://test-api.storexweb.com/' + movie?.image }}"
+          alt="image"
+          class="movie-thumbnail"
+        />
+      </div>
+      <div class="icons">
+        <button
+          class="delete"
+          mat-icon-button
+          color="warn"
+          (click)="deleteMovie(movie.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          class="edit"
+          mat-icon-button
+          color="primary"
+          (click)="
+            editMovie(
+              movie.id,
+              movie.name,
+              movie.description,
+              movie.image,
+              movie.category_id,
+              movie?.category?.name
+            )
+          "
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          class="show"
+          (click)="openmovieDetailes(movie.id)"
+          mat-icon-button
+          color="accent"
+        >
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </div>
+      <div class="movie-description">
+        <p class="movie-name">{{ movie?.name }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
